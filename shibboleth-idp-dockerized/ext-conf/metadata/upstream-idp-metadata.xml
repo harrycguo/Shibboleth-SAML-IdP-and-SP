@@ -1,0 +1,31 @@
+<EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:assertion="urn:oasis:names:tc:SAML:2.0:assertion" entityID="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso/metadata.xml">
+    <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDPjCCAiYCCQCZ6ssULKYLVzANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJV
+UzELMAkGA1UECAwCTlkxETAPBgNVBAcMCE5ldyBZb3JrMRgwFgYDVQQKDA9CZXlv
+bmQgSWRlbnRpdHkxGDAWBgNVBAsMD0JleW9uZCBJZGVudGl0eTAeFw0yMTA0MjAx
+MzA2MDJaFw0zNjA0MTYxMzA2MDJaMGExCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJO
+WTERMA8GA1UEBwwITmV3IFlvcmsxGDAWBgNVBAoMD0JleW9uZCBJZGVudGl0eTEY
+MBYGA1UECwwPQmV5b25kIElkZW50aXR5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAsjSy/BwbCRb67z1/DTIk1Ea+FrFBrN8s6UX0S/Ul0sEneqEex4k7
+EbuB1ZW9COo7sjQC7j/AU4xhgpIRCnVxpxlag/zulyPivytRhDYCn38A6UvqkhdC
+UPvyNhkSnxkesaMbfy7utXvtmc8mrYg02iJobYRAGZWddfedsyy/LhhOUA1+bYrg
+jMUnjAvZihPxRF/y8SOW3edRxeuxEd/QVvwu8FM1C8oIkF8ultaP914gVZiFh/zx
+iY+YSQpxGTAPY1IS3ycsnvV6CuBO2w3khQ5sw8xHfEsPeb2JETG+l7yxqg5BN9W/
+uqKKKq8ms6X2YkwiKhXKU1FAUChpZJZ9AwIDAQABMA0GCSqGSIb3DQEBCwUAA4IB
+AQAFeD00GFJpI2UlzOBR/6Sm5dtq28FMWl7B+SiM49WOuDJztDW4YjwU/16Z1h7g
+YnLlQBXxzJan4rb2sGTq6Nc7eHjTg2S7NL/+4mo/Xh84OPEcEXzepHb/BERxJFjJ
+yXdSUHaTPEW0iyvCMrkGz6rR2hB8w3YDJSitVfniaHmphrsNN6EchGnihIKBdLnZ
+rPvXOq3JeeSZKs9P5F9/FDFJiud7IyrsuHfFCMdJ7TXS3j/2ZDfc6eL20SuiAXkc
+zSeC18ZR2rvz5xsyw1S0Lv23QWQbdNnqA2pRRe2Tp9KIjt/3Acnnu+uZu2ClkCFN
+85pDTOF5CbFSqDtDjaw3AVcT</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso"></SingleSignOnService>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso"></SingleSignOnService>
+    </IDPSSODescriptor>
+</EntityDescriptor>
