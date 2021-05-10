@@ -7,6 +7,31 @@
 -->
 <EntityDescriptor  xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://localhost/idp/shibboleth">
 
+    <!-- New SP block -->
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+ 
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                    ...Signing Certificate from IdP...
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <KeyDescriptor use="encryption">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                    ...Encryption Certificate from IdP...
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+ 
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://localhost/idp/profile/SAML2/POST/SSO" index="0"/>
+    </SPSSODescriptor>
+
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
 
         <Extensions>
@@ -115,7 +140,7 @@ rXnhG1Cq0ThVH6w8Q4J8/+Of9BcorD+e7UC48iMVu/JuCE+KEQ9pW1PmPPM=
         <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
 
         <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.example.com/idp/profile/Shibboleth/SSO"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.example.com/idp/profile/SAML2/POST/SSO"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://localhost/idp/profile/SAML2/POST/SSO"/>
         <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.example.com/idp/profile/SAML2/POST-SimpleSign/SSO"/>
         <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://localhost/idp/profile/SAML2/Redirect/SSO"/>
 
