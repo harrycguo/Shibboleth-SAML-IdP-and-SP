@@ -94,6 +94,15 @@
                 p:passiveAuthenticationSupported="true"
                 p:forcedAuthenticationSupported="true"
                 p:nonBrowserSupported="false" />
+        
+        <!-- This is a flow for proxied SAML authentication to another IdP. -->
+
+        <bean id="authn/SAML" parent="shibboleth.AuthenticationFlow"
+            p:nonBrowserSupported="false"
+            p:passiveAuthenticationSupported="true"
+            p:forcedAuthenticationSupported="true"
+            p:proxyScopingEnforced="true"
+            p:discoveryRequired="true" />
 
     </util:list>
 
