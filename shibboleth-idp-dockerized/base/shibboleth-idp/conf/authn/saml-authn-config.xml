@@ -16,10 +16,10 @@
     Optional Function<ProfileRequest,String> to supply name of proxied IdP,
     otherwise flow assumes IdP discovery has been performed already.
     -->
-    <!--
+    
     <bean id="shibboleth.authn.SAML.discoveryFunction" parent="shibboleth.Functions.Constant"
-        c:target="https://idp.example.org/idp/shibboleth" />
-    -->
+        c:target="http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml" />
+   
     
     <!--
     Add authentication flow descriptor's supportedPrincipals collection to the

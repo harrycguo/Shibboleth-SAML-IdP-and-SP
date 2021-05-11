@@ -43,7 +43,7 @@
         akin to the c14n/SAML2Transform flow for SAML Request scenarios, but separately defined so
         a suitably restrictive format list and/or condition can be applied to it. 
         -->
-        <!-- <ref bean="c14n/SAML2ProxyTransform" /> -->
+        <ref bean="c14n/SAML2ProxyTransform" />
 
         <!--
         This is an alternative that handles Subjects containing an X500Principal object and
@@ -75,7 +75,7 @@
     <bean id="shibboleth.ProxyNameTransformPredicate" parent="shibboleth.Conditions.ProxyAuthentication">
         <constructor-arg name="collection">
             <list>
-                <!-- <value>https://idp-proxy.example.org</value> -->
+                <value>http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml</value>
             </list>
         </constructor-arg>
     </bean>

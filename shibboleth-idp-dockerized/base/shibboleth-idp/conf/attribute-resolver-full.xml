@@ -274,6 +274,14 @@
         <resolver:AttributeEncoder xsi:type="enc:SAML2String" name="urn:oid:2.5.4.3" friendlyName="cn" />
     </resolver:AttributeDefinition>	
 
+    
+<resolver:AttributeDefinition xsi:type="SubjectDerivedAttribute"
+    forCanonicalization="true"
+    principalAttributeName="uid"
+    id="proxied-uid"
+    />
+
+
 	
     <!-- ========================================== -->
     <!--      Data Connectors                       -->

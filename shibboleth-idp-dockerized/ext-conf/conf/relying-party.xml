@@ -128,6 +128,16 @@
                 </list>
             </property>
         </bean>
+
+                <bean parent="RelyingPartyByName" c:relyingPartyIds="http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml">
+            <property name="profileConfigurations">
+                <list>
+                    <bean parent="SAML2.SSO" p:encryptAssertions="false" p:encryptNameIDs="false"
+                          p:signResponses="false" p:signAssertions="true"
+                          p:nameIDFormatPrecedence="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" />
+                </list>
+            </property>
+        </bean>
         
     </util:list>
 
