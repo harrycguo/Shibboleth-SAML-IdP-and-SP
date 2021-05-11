@@ -27,7 +27,7 @@
     </AttributeFilterPolicy>
 
     <AttributeFilterPolicy id="saml-proxy-pass-through">
-    <PolicyRequirementRule xsi:type="Issuer" value="http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml" />
+    <PolicyRequirementRule xsi:type="Issuer" value="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" />
     <AttributeRule attributeID="uid" permitAny="true" />
 </AttributeFilterPolicy>
 

@@ -129,7 +129,7 @@
             </property>
         </bean>
 
-                <bean parent="RelyingPartyByName" c:relyingPartyIds="http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml">
+                <bean parent="RelyingPartyByName" c:relyingPartyIds="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml">
             <property name="profileConfigurations">
                 <list>
                     <bean parent="SAML2.SSO" p:encryptAssertions="false" p:encryptNameIDs="false"

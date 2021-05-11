@@ -13,17 +13,17 @@
     <!-- <variable name="idp.process.appender" value="ASYNC_PROCESS" /> -->
     
     <!-- Logging level shortcuts. -->
-    <variable name="idp.loglevel.idp" value="DEBUG" />
+    <variable name="idp.loglevel.idp" value="INFO" />
     <variable name="idp.loglevel.ldap" value="WARN" />
-    <variable name="idp.loglevel.messages" value="DEBUG" />
-    <variable name="idp.loglevel.encryption" value="DEBUG" />
-    <variable name="idp.loglevel.opensaml" value="DEBUG" />
-    <variable name="idp.loglevel.props" value="DEBUG" />
+    <variable name="idp.loglevel.messages" value="INFO" />
+    <variable name="idp.loglevel.encryption" value="INFO" />
+    <variable name="idp.loglevel.opensaml" value="INFO" />
+    <variable name="idp.loglevel.props" value="INFO" />
     
     <!-- Don't turn these up unless you want a *lot* of noise. -->
     <variable name="idp.loglevel.spring" value="ERROR" />
     <variable name="idp.loglevel.container" value="ERROR" />
-    <variable name="idp.loglevel.xmlsec" value="DEBUG" />
+    <variable name="idp.loglevel.xmlsec" value="INFO" />
 
     <!--
     If you want to use custom properties in this config file,
@@ -36,26 +36,26 @@
     <!-- =========================================================== -->
 
     <!-- Logs IdP, but not OpenSAML, messages -->
-    <logger name="net.shibboleth.idp" level="${idp.loglevel.idp:-DEBUG}"/>
+    <logger name="net.shibboleth.idp" level="${idp.loglevel.idp:-INFO}"/>
 
     <!-- Logs OpenSAML, but not IdP, messages -->
-    <logger name="org.opensaml.saml" level="${idp.loglevel.opensaml:-DEBUG}"/>
+    <logger name="org.opensaml.saml" level="${idp.loglevel.opensaml:-INFO}"/>
     
     <!-- Logs LDAP related messages -->
     <logger name="org.ldaptive" level="${idp.loglevel.ldap:-WARN}"/>
     
     <!-- Logs inbound and outbound protocols messages at DEBUG level -->
-    <logger name="PROTOCOL_MESSAGE" level="${idp.loglevel.messages:-DEBUG}" />
+    <logger name="PROTOCOL_MESSAGE" level="${idp.loglevel.messages:-INFO}" />
 
     <!-- Logs unencrypted SAML at DEBUG level -->
-    <logger name="org.opensaml.saml.saml2.encryption.Encrypter" level="${idp.loglevel.encryption:-DEBUG}" />
+    <logger name="org.opensaml.saml.saml2.encryption.Encrypter" level="${idp.loglevel.encryption:-INFO}" />
 
     <!-- Logs system properties during startup at DEBUG level -->
-    <logger name="net.shibboleth.idp.log.LogbackLoggingService" level="${idp.loglevel.props:-DEBUG}" />
+    <logger name="net.shibboleth.idp.log.LogbackLoggingService" level="${idp.loglevel.props:-INFO}" />
 
     <!-- Especially chatty. -->
-    <logger name="net.shibboleth.idp.saml.attribute.mapping" level="DEBUG" />
-    <logger name="org.apache.xml.security" level="${idp.loglevel.xmlsec:-DEBUG}" />
+    <logger name="net.shibboleth.idp.saml.attribute.mapping" level="INFO" />
+    <logger name="org.apache.xml.security" level="${idp.loglevel.xmlsec:-INFO}" />
     <logger name="org.springframework" level="${idp.loglevel.spring:-ERROR}"/>
     <logger name="org.apache.catalina" level="${idp.loglevel.container:-ERROR}"/>
     <logger name="org.eclipse.jetty" level="${idp.loglevel.container:-ERROR}"/>
@@ -171,7 +171,7 @@
         <appender-ref ref="${idp.consent.appender:-IDP_CONSENT_AUDIT}"/>
     </logger>
     
-    <root level="${idp.loglevel.root:-DEBUG}">
+    <root level="${idp.loglevel.root:-INFO}">
         <appender-ref ref="${idp.process.appender:-IDP_PROCESS}"/>
         <appender-ref ref="${idp.warn.appender:-IDP_WARN}" />
     </root>

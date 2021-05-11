@@ -75,7 +75,7 @@
     <bean id="shibboleth.ProxyNameTransformPredicate" parent="shibboleth.Conditions.ProxyAuthentication">
         <constructor-arg name="collection">
             <list>
-                <value>http://dockerhost:8070/saml/v0/debe753f-4680-4c8a-b5c2-a55a851a8ca7/sso/metadata.xml</value>
+                <value>http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml</value>
             </list>
         </constructor-arg>
     </bean>
