@@ -1,0 +1,6 @@
+id=uid
+transcoder=SAML2StringTranscoder SAML1StringTranscoder
+saml1.name=urn:mace:federation.org.au:attribute:auEduPersonSharedToken
+saml2.name=urn:oid:1.3.6.1.4.1.27856.1.2.5
+displayName.en=UID Shared Token
+description.en=UID A unique identifier enabling federation spanning services such as Grid and Repositories.

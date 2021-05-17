@@ -104,8 +104,13 @@
     <!--           Note: The domain name suffix MUST match the scope value -->
     <!--                 assigned to the IdP (in the IdPs Scope value in the metadata -->
     
-    <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Prescoped">
+    <!-- NOTE: this the OG, i just did stuff below to mess with
+        <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Prescoped">
         <InputDataConnector ref="ldap" attributeNames="eduPersonPrincipalName" />
+    </AttributeDefinition> -->
+   
+       <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Prescoped">
+        <InputDataConnector ref="ldap" attributeNames="employeeNumber" />
     </AttributeDefinition>
    
 
@@ -117,12 +122,12 @@
 
     <!-- eduPersonTargetedID -->
 
-    <AttributeDefinition xsi:type="SAML2NameID" id="eduPersonTargetedID"
+    <!-- <AttributeDefinition xsi:type="SAML2NameID" id="eduPersonTargetedID"
     nameIdFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">
         <InputDataConnector ref="StoredIDConnector" attributeNames="StoredID" />
         <AttributeEncoder xsi:type="SAML1XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
         <AttributeEncoder xsi:type="SAML2XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" friendlyName="eduPersonTargetedID"/>
-    </AttributeDefinition>
+    </AttributeDefinition> -->
 
     <!-- mail -->
     <!-- Provided via exportAttributes in the ldap data connector -->
@@ -163,12 +168,6 @@
     <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
         <InputDataConnector ref="ldap" attributeNames="studentNumber" />
     </AttributeDefinition>
-
-    <AttributeDefinition xsi:type="SubjectDerivedAttribute"
-    forCanonicalization="true"
-    principalAttributeName="uid"
-    id="proxied-uid"
-    />
 
     <!-- cn (commonName) - Previously a CORE attribute, still used by many services -->
     <!--                   Note: Script is used to ensure cn is of the correct format -->
@@ -248,11 +247,11 @@
             expirationTime="%{idp.pool.LDAP.idleTime:PT10M}"/>
     </DataConnector>
 
-    <DataConnector id="StoredIDConnector" xsi:type="StoredId" 
+    <!-- <DataConnector id="StoredIDConnector" xsi:type="StoredId" 
         generatedAttributeID="StoredID"
         salt="%{idp.persistentId.salt}" >
         <InputAttributeDefinition ref="YOUR_SOURCE_ATTRIBUTE_HERE" />
         <BeanManagedConnection>shibboleth.JPAStorageService.DataSource</BeanManagedConnection>
-    </DataConnector>
+    </DataConnector> -->
 
 </AttributeResolver>

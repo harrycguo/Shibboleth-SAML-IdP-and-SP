@@ -32,3 +32,17 @@ mail: ethan.smith@example.com
 userPassword: ethan-passwd
 employeeType: arn:aws:iam::my-aws-id:role/shibbolethidp,arn:aws:iam::my-aws-id:saml-provider/Shibboleth-IdP
 employeeNumber: IEFis4xZPUSiJubMtq+Yvg==
+
+dn: uid=harryguo,ou=People,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: inetOrgPerson
+uid: harryguo
+sn: Guo
+givenName: Harry
+cn: Harry Guo
+mail: harry.guo@beyondidentity.com
+userPassword: harryguo
+employeeType: arn:aws:iam::my-aws-id:role/shibbolethidp,arn:aws:iam::my-aws-id:saml-provider/Shibboleth-IdP
+employeeNumber: 111111111111111

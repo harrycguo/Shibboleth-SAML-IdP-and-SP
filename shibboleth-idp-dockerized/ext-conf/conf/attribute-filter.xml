@@ -21,7 +21,7 @@
 	<AttributeFilterPolicy id="Per-Attribute-singleValued">
 	    <PolicyRequirementRule xsi:type="ANY" />
 	 
-	    <AttributeRule attributeID="eduPersonPrincipalName">
+	    <!-- <AttributeRule attributeID="eduPersonPrincipalName">
 	        <PermitValueRule xsi:type="EntityAttributeExactMatch"
 	            attributeName="http://shibboleth.net/ns/attributes/releaseAllValues"
 	            attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
@@ -33,7 +33,10 @@
 	            attributeName="http://shibboleth.net/ns/attributes/releaseAllValues"
 	            attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
 	            attributeValue="mail" />
-	    </AttributeRule>
+	    </AttributeRule> -->
+            <AttributeRule attributeID="uid" permitAny="true" />
+            <AttributeRule attributeID="YOOOOOOOoooATTRIBUTE" permitAny="true" />
+
 	</AttributeFilterPolicy>
 
     <!--
@@ -93,12 +96,9 @@
         <AttributeRule attributeID="eduPersonScopedAffiliation" permitAny="true" />
     </AttributeFilterPolicy>
     
-        <AttributeFilterPolicy id="saml-proxy-pass-through">
+<AttributeFilterPolicy id="saml-proxy-pass-through">
     <PolicyRequirementRule xsi:type="Issuer" value="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" />
-    <AttributeRule attributeID="uid" permitAny="true" />
-    <AttributeRule attributeID="zzzzemail" permitAny="true" />
-    <AttributeRule attributeID="zzzzExternalID" permitAny="true" />
-    <AttributeRule attributeID="fakeeee" permitAny="true" />
+    <AttributeRule attributeID="YOOOOOOOoooATTRIBUTE" permitAny="true" />
 </AttributeFilterPolicy>
 
 </AttributeFilterPolicyGroup>
