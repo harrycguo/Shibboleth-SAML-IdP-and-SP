@@ -96,18 +96,18 @@
     <!-- eduPersonPrincipalName -->
     
     <!-- Option 1: Appending the organisations scope to the user's UID -->
-    <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Scoped" scope="%{idp.scope}">
+    <!-- <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Scoped" scope="%{idp.scope}">
         <InputAttributeDefinition ref="uid" />
-    </AttributeDefinition>
+    </AttributeDefinition> -->
 
     <!-- Option 2: From value in LDAP -->
     <!--           Note: The domain name suffix MUST match the scope value -->
     <!--                 assigned to the IdP (in the IdPs Scope value in the metadata -->
-    <!-- 
+    
     <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Prescoped">
         <InputDataConnector ref="ldap" attributeNames="eduPersonPrincipalName" />
     </AttributeDefinition>
-    -->
+   
 
     <!-- eduPersonScopedAffiliation -->
 
