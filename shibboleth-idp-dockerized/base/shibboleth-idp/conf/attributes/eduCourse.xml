@@ -43,7 +43,7 @@
             </property>
         </bean> -->
 
-        <bean parent="shibboleth.TranscodingProperties">
+        <!-- <bean parent="shibboleth.TranscodingProperties">
             <property name="properties">
                 <props merge="true">
                     <prop key="id">YOOOOOOOoooATTRIBUTE</prop>
@@ -55,7 +55,7 @@
                     <prop key="description.en">YOOOOOOOoooATTRIBUTESpecifies the person's role within a particular course offering</prop>
                 </props>
             </property>
-        </bean>
+        </bean> -->
 
     </list>
     </constructor-arg>

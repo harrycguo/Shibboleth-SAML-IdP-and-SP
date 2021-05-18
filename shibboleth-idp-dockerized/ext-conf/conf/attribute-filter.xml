@@ -36,6 +36,8 @@
 	    </AttributeRule> -->
             <AttributeRule attributeID="uid" permitAny="true" />
             <AttributeRule attributeID="YOOOOOOOoooATTRIBUTE" permitAny="true" />
+            <AttributeRule attributeID="zzzemail" permitAny="true" />
+            <AttributeRule attributeID="zzzexternalID" permitAny="true" />
 
 	</AttributeFilterPolicy>
 
@@ -98,7 +100,8 @@
     
 <AttributeFilterPolicy id="saml-proxy-pass-through">
     <PolicyRequirementRule xsi:type="Issuer" value="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" />
-    <AttributeRule attributeID="YOOOOOOOoooATTRIBUTE" permitAny="true" />
+    <AttributeRule attributeID="zzzzemail" permitAny="true" />
+    <AttributeRule attributeID="zzzzexternalID" permitAny="true" />
 </AttributeFilterPolicy>
 
 </AttributeFilterPolicyGroup>
