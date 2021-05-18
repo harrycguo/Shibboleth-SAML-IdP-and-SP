@@ -1,4 +1,5 @@
-<EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:assertion="urn:oasis:names:tc:SAML:2.0:assertion" entityID="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso/metadata.xml">
+<!-- REPLACE ENTITYID AND LOCATIONS WITH VALUES FROM YOUR OWN BEYOND IDENTITY SAML CONNECTION-->
+<EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:assertion="urn:oasis:names:tc:SAML:2.0:assertion" entityID="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml">
     <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <KeyDescriptor use="signing">
             <ds:KeyInfo>
@@ -25,7 +26,7 @@ zSeC18ZR2rvz5xsyw1S0Lv23QWQbdNnqA2pRRe2Tp9KIjt/3Acnnu+uZu2ClkCFN
             </ds:KeyInfo>
         </KeyDescriptor>
         <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso"></SingleSignOnService>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://dockerhost:8070/saml/v0/ee5246d3-408d-4a0e-adac-acbf69f700fa/sso"></SingleSignOnService>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso"></SingleSignOnService>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso"></SingleSignOnService>
     </IDPSSODescriptor>
 </EntityDescriptor>

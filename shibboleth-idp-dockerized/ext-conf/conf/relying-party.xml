@@ -128,6 +128,19 @@
                 </list>
             </property>
         </bean>
+
+    <!-- Bean for Specifying Auth Flow for Specified Entity ID - UNCOMMENT FOR TUTORIAL -->
+    <!-- <bean parent="RelyingPartyByName" c:relyingPartyIds="https://localhost:2443/Shibboleth.sso/Metadata">
+      <property name="profileConfigurations">
+          <list>
+              <bean 
+              parent="SAML2.SSO" 
+			p:authenticationFlows="#{{'SAML'}}"
+              p:encryptAssertions="false" 
+              p:encryptNameIDs="false" />
+          </list>
+      </property>
+    </bean> -->
         
     </util:list>
 

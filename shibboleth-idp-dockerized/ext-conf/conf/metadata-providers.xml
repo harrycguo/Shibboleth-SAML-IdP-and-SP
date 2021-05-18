@@ -103,10 +103,10 @@
 		maxRefreshDelay="PT48H">
     </MetadataProvider>
 
-  <!-- UPSTREAM IDP METADATA PROVIDER BLOCK -->
-    <MetadataProvider id="upstream-idp-metadata"
-        xsi:type="FilesystemMetadataProvider"
-        metadataFile="/opt/shibboleth-idp/metadata/upstream-idp-metadata.xml">
-    </MetadataProvider>
+  <!-- UPSTREAM IDP METADATA PROVIDER BLOCK - UNCOMMENT FOR TUTORIAL -->
+    <!-- <MetadataProvider id="beyond-identity-idp"
+      xsi:type="FilesystemMetadataProvider"
+      metadataFile="/opt/shibboleth-idp/metadata/idp-beyond-identity-metadata.xml">
+    </MetadataProvider> -->
 
 </MetadataProvider>
