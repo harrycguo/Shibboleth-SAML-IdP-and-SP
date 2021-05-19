@@ -129,7 +129,7 @@
             </property>
         </bean>
 
-    <!-- Bean for Specifying Auth Flow for Specified Entity ID - UNCOMMENT FOR TUTORIAL -->
+    <!-- Bean for Specifying Auth Flow for Specified Entity ID - UNCOMMENT FOR SAML PROXY WALKTHROUGH STEP 6 -->
     <!-- <bean parent="RelyingPartyByName" c:relyingPartyIds="https://localhost:2443/Shibboleth.sso/Metadata">
       <property name="profileConfigurations">
           <list>

@@ -16,10 +16,9 @@
     Optional Function<ProfileRequest,String> to supply name of proxied IdP,
     otherwise flow assumes IdP discovery has been performed already.
     -->
-    <!-- UNCOMMENT FOR TUTORIAL AND ADD OWN BEYOND IDENTITY ENTITY ID -->
+    <!-- UNCOMMENT FOR TUTORIAL AND ADD OWN BEYOND IDENTITY ENTITY ID // SAML WALKTHROUGH STEP 4-->
     <!-- <bean id="shibboleth.authn.SAML.discoveryFunction" parent="shibboleth.Functions.Constant"
-        c:target="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" />
-     -->
+        c:target="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" /> -->
 
     <!--
     Add authentication flow descriptor's supportedPrincipals collection to the

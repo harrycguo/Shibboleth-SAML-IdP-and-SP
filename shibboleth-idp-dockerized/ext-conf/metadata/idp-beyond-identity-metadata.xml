@@ -1,4 +1,4 @@
-<!-- REPLACE ENTITYID AND LOCATIONS WITH VALUES FROM YOUR OWN BEYOND IDENTITY SAML CONNECTION-->
+<!-- REPLACE ENTITYID AND LOCATIONS WITH VALUES FROM YOUR OWN BEYOND IDENTITY SAML CONNECTION // SAML PROXY WALKTHROUGH -->
 <EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:assertion="urn:oasis:names:tc:SAML:2.0:assertion" entityID="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml">
     <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <KeyDescriptor use="signing">

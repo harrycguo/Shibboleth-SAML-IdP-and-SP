@@ -43,7 +43,7 @@
         akin to the c14n/SAML2Transform flow for SAML Request scenarios, but separately defined so
         a suitably restrictive format list and/or condition can be applied to it. 
         -->
-        <!-- UNCOMMENT FOR TUTORIAL -->
+        <!-- UNCOMMENT FOR TUTORIAL // SAML PROXY WALKTHROUGH STEP 5 -->
         <!-- <ref bean="c14n/SAML2ProxyTransform" /> -->
 
         <!--
@@ -76,7 +76,7 @@
     <bean id="shibboleth.ProxyNameTransformPredicate" parent="shibboleth.Conditions.ProxyAuthentication">
         <constructor-arg name="collection">
             <list>
-                <!-- UNCOMMENT FOR TUTURAL AND REPLACE WITH OWN BEYOND IDENTITY SAML CONNECTION ENTITY ID -->
+                <!-- UNCOMMENT FOR TUTURAL AND REPLACE WITH OWN BEYOND IDENTITY SAML CONNECTION ENTITY ID // SAML PROXY WALKTHROUGH STEP 5 -->
                 <!-- <value>http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml</value> -->
             </list>
         </constructor-arg>
