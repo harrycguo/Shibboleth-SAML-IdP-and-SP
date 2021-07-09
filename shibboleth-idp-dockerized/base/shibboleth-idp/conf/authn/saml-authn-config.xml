@@ -17,8 +17,13 @@
     otherwise flow assumes IdP discovery has been performed already.
     -->
     <!-- UNCOMMENT FOR TUTORIAL AND ADD OWN BEYOND IDENTITY ENTITY ID // SAML WALKTHROUGH STEP 4-->
-    <!-- <bean id="shibboleth.authn.SAML.discoveryFunction" parent="shibboleth.Functions.Constant"
-        c:target="http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml" /> -->
+    <bean id="shibboleth.authn.SAML.discoveryFunction" parent="shibboleth.Functions.Constant"
+        c:target="https://auth.rolling.byndid.run/saml/v0/b0b07129-2840-45af-bc52-084666ba1596/sso/metadata.xml" 
+        
+      
+        
+        
+        />
 
     <!--
     Add authentication flow descriptor's supportedPrincipals collection to the

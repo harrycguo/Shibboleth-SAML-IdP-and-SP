@@ -104,9 +104,9 @@
     </MetadataProvider>
 
   <!-- UPSTREAM IDP METADATA PROVIDER BLOCK - UNCOMMENT FOR SAML PROXY WALKTHROUGH STEP 3 -->
-    <!-- <MetadataProvider id="beyond-identity-idp"
+    <MetadataProvider id="beyond-identity-idp"
       xsi:type="FilesystemMetadataProvider"
       metadataFile="/opt/shibboleth-idp/metadata/idp-beyond-identity-metadata.xml">
-    </MetadataProvider> -->
+    </MetadataProvider>
 
 </MetadataProvider>

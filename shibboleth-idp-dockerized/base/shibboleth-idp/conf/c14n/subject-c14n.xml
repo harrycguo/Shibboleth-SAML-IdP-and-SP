@@ -44,7 +44,7 @@
         a suitably restrictive format list and/or condition can be applied to it. 
         -->
         <!-- UNCOMMENT FOR TUTORIAL // SAML PROXY WALKTHROUGH STEP 5 -->
-        <!-- <ref bean="c14n/SAML2ProxyTransform" /> -->
+        <ref bean="c14n/SAML2ProxyTransform" />
 
         <!--
         This is an alternative that handles Subjects containing an X500Principal object and
@@ -77,7 +77,8 @@
         <constructor-arg name="collection">
             <list>
                 <!-- UNCOMMENT FOR TUTURAL AND REPLACE WITH OWN BEYOND IDENTITY SAML CONNECTION ENTITY ID // SAML PROXY WALKTHROUGH STEP 5 -->
-                <!-- <value>http://dockerhost:8070/saml/v0/1ff16383-2d4a-4e9a-ae92-469f68b9c3e2/sso/metadata.xml</value> -->
+                <!-- <value>http://dockerhost:8070/saml/v0/7c20b1f8-ac5b-407f-9736-1f6ea3b72d31/sso/metadata.xml</value> -->
+                <value>https://auth.rolling.byndid.run/saml/v0/b0b07129-2840-45af-bc52-084666ba1596/sso/metadata.xml</value>
             </list>
         </constructor-arg>
     </bean>

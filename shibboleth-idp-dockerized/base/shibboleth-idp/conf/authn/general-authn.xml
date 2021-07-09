@@ -26,8 +26,38 @@
     customization, as the examples below for IP address and SPNEGO authentication illustrate.
     -->
 
-    <util:list id="shibboleth.AvailableAuthenticationFlows">
-        
+<util:list id="shibboleth.AvailableAuthenticationFlows">
+
+    <bean id="authn/SAML" parent="shibboleth.AuthenticationFlow"
+        p:nonBrowserSupported="false"
+        p:passiveAuthenticationSupported="true"
+        p:forcedAuthenticationSupported="true"
+        p:proxyScopingEnforced="true"
+        p:discoveryRequired="true" />
+
+    <bean id="authn/MFA" parent="shibboleth.AuthenticationFlow"
+        p:passiveAuthenticationSupported="true"
+        p:forcedAuthenticationSupported="true">
+            <!--
+            The list below almost certainly requires changes, and should generally be the
+            union of any of the separate factors you combine in your particular MFA flow
+            rules. The example corresponds to the example in mfa-authn-config.xml that
+            combines IPAddress with Password.
+            -->
+<property name="supportedPrincipals">
+    <list>
+        <bean parent="shibboleth.SAML2AuthnContextClassRef"
+            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol" />
+        <bean parent="shibboleth.SAML2AuthnContextClassRef"
+            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport" />
+        <bean parent="shibboleth.SAML2AuthnContextClassRef"
+            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:Password" />
+        <bean parent="shibboleth.SAML1AuthenticationMethod"
+            c:method="urn:oasis:names:tc:SAML:1.0:am:password" />
+    </list>
+</property>
+        </bean>
+
         <bean id="authn/IPAddress" parent="shibboleth.AuthenticationFlow"
                 p:passiveAuthenticationSupported="true"
                 p:lifetime="PT60S" p:inactivityTimeout="PT60S">
@@ -86,6 +116,8 @@
             </property>
         </bean>
 
+
+
         <bean id="authn/Password" parent="shibboleth.AuthenticationFlow"
                 p:passiveAuthenticationSupported="true"
                 p:forcedAuthenticationSupported="true" />
@@ -95,14 +127,13 @@
                 p:forcedAuthenticationSupported="true"
                 p:nonBrowserSupported="false" />
         
+
+
+
+        
         <!-- This is a flow for proxied SAML authentication to another IdP. -->
 
-        <bean id="authn/SAML" parent="shibboleth.AuthenticationFlow"
-            p:nonBrowserSupported="false"
-            p:passiveAuthenticationSupported="true"
-            p:forcedAuthenticationSupported="true"
-            p:proxyScopingEnforced="true"
-            p:discoveryRequired="true" />
+
 
     </util:list>
 
