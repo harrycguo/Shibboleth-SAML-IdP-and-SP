@@ -109,4 +109,10 @@
       metadataFile="/opt/shibboleth-idp/metadata/idp-beyond-identity-metadata.xml">
     </MetadataProvider>
 
+    <!-- SP METADATA PROVIDER BLOCK - Beyond Identity Admin Console -->
+    <MetadataProvider id="beyond-identity-admin-console-sp"
+      xsi:type="FilesystemMetadataProvider"
+      metadataFile="/opt/shibboleth-idp/metadata/sp-beyond-identity-admin-console-metadata.xml">
+    </MetadataProvider>
+
 </MetadataProvider>

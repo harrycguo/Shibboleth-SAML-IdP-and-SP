@@ -141,6 +141,19 @@
           </list>
       </property>
     </bean>
+
+        <!-- Bean for Specifying Auth Flow for Beyond Identity Admin Console -->
+    <!-- <bean parent="RelyingPartyByName" c:relyingPartyIds="http://dockerhost:8080/auth/saml/d1a59fba-972f-4bb9-aa35-9f4fd98aaf11/sso/metadata.xml">
+      <property name="profileConfigurations">
+          <list>
+              <bean 
+              parent="SAML2.SSO" 
+			p:authenticationFlows="#{{'Password'}}"
+              p:encryptAssertions="false" 
+              p:encryptNameIDs="false" />
+          </list>
+      </property>
+    </bean> -->
         
     </util:list>
 
