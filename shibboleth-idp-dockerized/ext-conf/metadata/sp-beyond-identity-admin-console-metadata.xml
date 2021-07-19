@@ -1,6 +1,6 @@
-<EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="http://dockerhost:8080/auth/saml/d1a59fba-972f-4bb9-aa35-9f4fd98aaf11/sso/metadata.xml">
+<EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="http://dockerhost:8080/auth/saml/f02af51f-0941-4f37-bc76-36ea6171b67c/sso/metadata.xml">
 <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="true">
-<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
-<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://dockerhost:8080/auth/saml/d1a59fba-972f-4bb9-aa35-9f4fd98aaf11/sso" index="0"/>
+<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://dockerhost:8080/auth/saml/f02af51f-0941-4f37-bc76-36ea6171b67c/sso" index="0"/>
 </SPSSODescriptor>
 </EntityDescriptor>

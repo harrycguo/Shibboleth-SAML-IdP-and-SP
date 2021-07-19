@@ -40,7 +40,7 @@
 
         <bean parent="shibboleth.SAML2AttributeSourcedGenerator"
             p:format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
-            p:attributeSourceIds="#{ {'mail'} }">
+            p:attributeSourceIds="#{ {'uid'} }">
 	    <property name="activationCondition">
 		<bean parent="shibboleth.Conditions.NOT">
 		    <constructor-arg>
