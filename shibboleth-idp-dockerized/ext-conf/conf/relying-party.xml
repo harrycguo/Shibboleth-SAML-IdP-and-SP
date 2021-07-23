@@ -135,7 +135,7 @@
           <list>
               <bean 
               parent="SAML2.SSO" 
-			p:authenticationFlows="#{{'SAML'}}"
+
               p:encryptAssertions="false" 
               p:encryptNameIDs="false" />
           </list>

@@ -5,4 +5,5 @@
   <Set name="copyWebDir">false</Set>
   <Set name="copyWebInf">true</Set>
   <Set name="persistTempDirectory">false</Set>
+  <Set name="allowDuplicateFragmentNames">true</Set>
 </Configure>
