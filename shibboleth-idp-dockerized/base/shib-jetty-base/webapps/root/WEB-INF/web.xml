@@ -8,7 +8,7 @@
       <location>/404</location>
     </error-page>
 
-        <!-- Servlet for receiving a callback from an external CAS Server and continues the IdP login flow -->
+    <!-- Servlet for receiving a callback from an external Server and continues the IdP login flow -->
     <servlet>
         <servlet-name>ShibCasAuthServlet</servlet-name>
         <servlet-class>net.unicon.idp.externalauth.ShibcasAuthServlet</servlet-class>

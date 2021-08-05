@@ -41,35 +41,77 @@
     <util:map id="shibboleth.authn.MFA.TransitionMap">
         <!-- First rule runs the IPAddress login flow. -->
         <entry key="">
-            <bean parent="shibboleth.authn.MFA.Transition" p:nextFlow="authn/SAML" />
+            <bean parent="shibboleth.authn.MFA.Transition" p:nextFlow="authn/External" />
         </entry>
-        
+
         <!--
         Second rule runs a function if IPAddress succeeds, to determine whether an additional
         factor is required.
         -->
-        <entry key="authn/SAML">
+        <entry key="authn/External">
             <bean parent="shibboleth.authn.MFA.Transition" p:nextFlowStrategy-ref="checkSecondFactor" />
         </entry>
-        
         <!-- An implicit final rule will return whatever the final flow returns. -->
     </util:map>
-
     <!-- Example script to see if second factor is required. -->
     <bean id="checkSecondFactor" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript">
         <constructor-arg>
             <value>
             <![CDATA[
                 nextFlow = "authn/Password";
-
+                logger = Java.type("org.slf4j.LoggerFactory").getLogger("net.shibboleth.idp.authn");
+                logger.info ("YOOOOOOO");
+                itr = input.iterator();
+      
+                while(itr.hasNext()) {
+                    element = itr.next();
+                    logger.info(element);
+                }
+            
                 // Check if second factor is necessary for request to be satisfied.
                 authCtx = input.getSubcontext("net.shibboleth.idp.authn.context.AuthenticationContext");
+                logger.info("auth context");
+                logger.info(authCtx);
                 mfaCtx = authCtx.getSubcontext("net.shibboleth.idp.authn.context.MultiFactorAuthenticationContext");
+                logger.info("mfa context");
+                logger.info(mfaCtx.toString());
 
                 // check for status codes here
 
                 if (mfaCtx.isAcceptable()) {
-                    nextFlow = null;
+                    // Attribute check is required to decide if first factor alone is enough.
+                    resCtx = input.getSubcontext("net.shibboleth.idp.authn.context.SubjectCanonicalizationContext");
+                    logger.info("subject c14n");
+                    logger.info(resCtx.getPrincipalName());
+                    logger.info(resCtx.getSubject());
+
+                    subject = resCtx.getSubject();
+                    principals = subject.getPrincipals();
+
+                    principalsItr = principals.iterator();
+                    while (principalsItr.hasNext()) {
+                        principal = principalsItr.next()
+                        name = principal.getName()
+                        logger.info(name)
+                        if (name == "byndidRegistered") {
+                            logger.info("CHECKING BYNDID REGISTERED")
+                            value = principal.getAttribute().getValues().get(0).getValue()
+                            logger.info(value)
+                            if (value.equals("true")) {
+                                logger.info("USE BEYOND IDENTITY")
+                                nextFlow = "authn/SAML"
+                            }
+                        }
+
+                    
+
+                
+
+                    }
+
+
+                    
+                    input.removeSubcontext(resCtx);   // cleanup - is this needed?
                 }
                 
                 nextFlow;   // pass control to second factor or end with the first
