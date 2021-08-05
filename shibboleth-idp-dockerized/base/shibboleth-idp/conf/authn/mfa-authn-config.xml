@@ -78,42 +78,33 @@
 
                 // check for status codes here
 
-                if (mfaCtx.isAcceptable()) {
-                    // Attribute check is required to decide if first factor alone is enough.
-                    resCtx = input.getSubcontext("net.shibboleth.idp.authn.context.SubjectCanonicalizationContext");
-                    logger.info("subject c14n");
-                    logger.info(resCtx.getPrincipalName());
-                    logger.info(resCtx.getSubject());
 
-                    subject = resCtx.getSubject();
-                    principals = subject.getPrincipals();
+                // Attribute check is required to decide if first factor alone is enough.
+                resCtx = input.getSubcontext("net.shibboleth.idp.authn.context.SubjectCanonicalizationContext");
+                logger.info("subject c14n");
+                logger.info(resCtx.getPrincipalName());
+                logger.info(resCtx.getSubject());
 
-                    principalsItr = principals.iterator();
-                    while (principalsItr.hasNext()) {
-                        principal = principalsItr.next()
-                        name = principal.getName()
-                        logger.info(name)
-                        if (name == "byndidRegistered") {
-                            logger.info("CHECKING BYNDID REGISTERED")
-                            value = principal.getAttribute().getValues().get(0).getValue()
-                            logger.info(value)
-                            if (value.equals("true")) {
-                                logger.info("USE BEYOND IDENTITY")
-                                nextFlow = "authn/SAML"
-                            }
+                subject = resCtx.getSubject();
+                principals = subject.getPrincipals();
+
+                principalsItr = principals.iterator();
+                while (principalsItr.hasNext()) {
+                    principal = principalsItr.next()
+                    name = principal.getName()
+                    logger.info(name)
+                    if (name == "useBeyondIdentity") {
+                        logger.info("CHECKING BYNDID REGISTERED")
+                        value = principal.getAttribute().getValues().get(0).getValue()
+                        logger.info(value)
+                        if (value.equals("true")) {
+                            logger.info("USE BEYOND IDENTITY")
+                            nextFlow = "authn/SAML"
                         }
-
-                    
-
-                
-
                     }
-
-
-                    
-                    input.removeSubcontext(resCtx);   // cleanup - is this needed?
                 }
-                
+
+                input.removeSubcontext(resCtx);   // cleanup - is this needed?                
                 nextFlow;   // pass control to second factor or end with the first
             ]]>
             </value>

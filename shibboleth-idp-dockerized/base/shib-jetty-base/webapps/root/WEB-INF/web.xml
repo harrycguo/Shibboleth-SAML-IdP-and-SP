@@ -9,13 +9,13 @@
     </error-page>
 
     <!-- Servlet for receiving a callback from an external Server and continues the IdP login flow -->
-    <servlet>
-        <servlet-name>ShibCasAuthServlet</servlet-name>
-        <servlet-class>net.unicon.idp.externalauth.ShibcasAuthServlet</servlet-class>
+     <servlet>
+        <servlet-name>ExternalAuth</servlet-name>
+        <servlet-class>external.ExternalAuth</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ShibCasAuthServlet</servlet-name>
+        <servlet-name>ExternalAuth</servlet-name>
         <url-pattern>/Authn/External/*</url-pattern>
     </servlet-mapping>
 </web-app>
