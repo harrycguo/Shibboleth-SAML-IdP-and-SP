@@ -94,7 +94,7 @@
                     name = principal.getName()
                     logger.info(name)
                     if (name == "useBeyondIdentity") {
-                        logger.info("CHECKING BYNDID REGISTERED")
+                        logger.info("CHECKING USE BEYOND IDENTITY")
                         value = principal.getAttribute().getValues().get(0).getValue()
                         logger.info(value)
                         if (value.equals("true")) {

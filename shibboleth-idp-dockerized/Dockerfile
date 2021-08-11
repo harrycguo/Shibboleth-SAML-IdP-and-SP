@@ -13,6 +13,7 @@ ENV JETTY_HOME=/opt/jetty-home \
     JETTY_BACKCHANNEL_SSL_KEYSTORE_PASSWORD=abcde \
     PATH=$PATH:/opt/zulu11.45.27-ca-jdk11.0.10-linux_x64/bin
 ENV JAVA_HOME=/opt/zulu11.45.27-ca-jdk11.0.10-linux_x64/bin/java
+ENV DISPLAY=:0.0
 
 ARG java_version=11.0.10
 ARG zulu_version=11.45.27
@@ -27,6 +28,9 @@ ARG dta_hash=2f547074b06952b94c35631398f36746820a7697
 RUN yum -y update \
     && yum -y install wget tar which \
     && yum -y clean all
+
+RUN yum install -y libXext.x86_64
+RUN yum install -y libXrender
 
 # Add a user for the Jetty server
 RUN useradd jetty -U -s /bin/false
