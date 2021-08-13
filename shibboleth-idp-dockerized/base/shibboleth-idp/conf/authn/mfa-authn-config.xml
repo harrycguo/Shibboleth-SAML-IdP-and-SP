@@ -103,8 +103,7 @@
                         }
                     }
                 }
-
-                input.removeSubcontext(resCtx);   // cleanup - is this needed?                
+              
                 nextFlow;   // pass control to second factor or end with the first
             ]]>
             </value>
