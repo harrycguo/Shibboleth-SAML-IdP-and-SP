@@ -17,20 +17,16 @@
         if (cookies != null) {
            for (int i = 0; i < cookies.length; i++) {
               cookie = cookies[i];
-              if (cookie.getName().equals("external_auth_username")) request.setAttribute("userNameCookie", cookie.getValue());
+              if (cookie.getName().equals("cu_username")) request.setAttribute("userNameCookie", cookie.getValue());
            }
         }
         %>
         UserName : <input type="text" id="userName" name="userName" value='<%= request.getAttribute("userNameCookie") %>'/>
         <br/>
         <br/>
-        <input type="checkbox" id="rememberMe" name="rememberMe" value="true">
-        <label for="rememberMe">Remember Me?</label>
-        <br/>
-        <br/>
 
-        <input type="submit" name="flowChoice" value="BeyondIdentity"/>
-        <input type="submit" name="flowChoice" value="Password">
+        <input type="submit" name="flowChoice" value="Passwordless Eligible Users"/>
+        <input type="submit" name="flowChoice" value="Alum (non-passwordless-eligible)">
     </form>
 
 </html>

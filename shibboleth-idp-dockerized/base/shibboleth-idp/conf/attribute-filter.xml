@@ -24,6 +24,9 @@
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
 
+        <AttributeRule attributeID="urn:oid:1.3.6.1.4.1.25178.1.2.10">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
     </AttributeFilterPolicy>
 
 </AttributeFilterPolicyGroup>

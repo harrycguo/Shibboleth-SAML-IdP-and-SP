@@ -28,10 +28,6 @@
 #if (!$passwordPrincipals or $passwordPrincipals.isEmpty() or $authenticationContext.isAcceptable($passwordPrincipals))
   #set ($passwordEnabled = true)
 #end
-
-#set ($requiredUsername = $authenticationContext.getRequiredName()) 
-#set ($hintedName = $authenticationContext.getHintedName()) 
-
 ##
 <!DOCTYPE html>
 <html>
@@ -40,7 +36,7 @@
     	<title>#springMessageText("idp.title", "Web Login Service")</title>
     	<link rel="stylesheet" type="text/css" href="$request.getContextPath()/css/main.css">
   	</head>
-        <script language="Javascript">
+        	<script language="Javascript">
     	<!--
     	#parse( "login.js" )
     	// -->
@@ -56,9 +52,6 @@
           <div class="column one">
             #parse("login-error.vm")
 
-            <p>Hi, $requiredUsername</p>
-            <p>Auth Context Hinted Name: $hintedName</p>
-
             <form action="$flowExecutionUrl" method="post">
 
             #set ($serviceName = $rpUIContext.serviceName)
@@ -67,20 +60,30 @@
                 #springMessageText("idp.login.loginTo", "Login to") $encoder.encodeForHTML($serviceName)
               </legend>
             #end
-
-            <div class="form-element-wrapper">
-            ## <label for="username">#springMessageText("idp.login.username", "User")</label>
-            <input class="form-element form-field" id="username" name="j_username" type="hidden"
-                value="#if($requiredUsername)$encoder.encodeForHTML($requiredUsername)#end">
-            </div>
                         
-            #if ($hintedName == "password")
+            #if ($passwordEnabled)
+              <div class="form-element-wrapper">
+                <label for="username">#springMessageText("idp.login.username", "User")</label>
+                <input class="form-element form-field" id="username" name="j_username" type="text"
+                	value="#if($username)$encoder.encodeForHTML($username)#end">
+              </div>
+
               <div class="form-element-wrapper">
                 <label for="password">#springMessageText("idp.login.password", "Pass")</label>
                 <input class="form-element form-field" id="password" name="j_password" type="password" value="">
               </div>
 
+              <div class="form-element-wrapper">
+                <input type="checkbox" name="donotcache" value="1"> #springMessageText("idp.login.donotcache", "")
+              </div>
+            #end
 
+              <div class="form-element-wrapper">
+                <input id="_shib_idp_revokeConsent" type="checkbox" name="_shib_idp_revokeConsent" value="true">
+                #springMessageText("idp.attribute-release.revoke", "")
+              </div>
+
+            #if ($passwordEnabled)
               <div class="form-element-wrapper">
                 <button class="form-element form-button" type="submit" name="_eventId_proceed"
                     onClick="this.childNodes[0].nodeValue='#springMessageText("idp.login.pleasewait", "Logging in, please wait...")'"
@@ -88,36 +91,28 @@
               </div>
             #end
 
-            #if ($hintedName == "passwordless")
-                <button id="passwordButton" type="button" class="form-element form-button" onClick="helloWorld(); return false;">
-                    #springMessageText("idp.login.login2", "Continue with Password")
-                </button>
-
-            <div id="passwordForm" style="display:none;">
-            <div class="form-element-wrapper">
-                <label for="password">#springMessageText("idp.login.password", "Pass")</label>
-                <input class="form-element form-field" id="password" name="j_password" type="password" value="">
-              </div>
-
-
-              <div class="form-element-wrapper">
-                <button class="form-element form-button" type="submit" name="_eventId_proceed"
-                    onClick="this.childNodes[0].nodeValue='#springMessageText("idp.login.pleasewait", "Logging in, please wait...")'"
-                    >#springMessageText("idp.login.login", "Login")</button>
-              </div>
-              </div>
-
-              <h1> ------- OR ------- </h1>
-              
               <div class="form-element-wrapper">
                 <button class="form-element form-button" type="submit" name="_eventId" value="MyCustomEvent" 
                     onClick="this.childNodes[0].nodeValue='#springMessageText("idp.login.pleasewait", "Logging in, please wait...")'"
-                    >#springMessageText("idp.login.login1", "Continue with Passwordless")</button>
+                    >#springMessageText("idp.login.login1", "Login Passwordless")</button>
               </div>
-            #end
 
+
+
+
+
+            #foreach ($extFlow in $extendedAuthenticationFlows)
+                <div class="form-element-wrapper">
+                  <button class="form-element form-button" type="submit" name="_eventId_$extFlow.getId()">
+                    #springMessageText("idp.login.$extFlow.getId().replace('authn/','')", $extFlow.getId().replace('authn/',''))
+                  </button>
+                </div>
+            #end
             </form>
-        </div>
+              </div>
+
+            <p id="nameText"></p>
+
 
 			#*
               //
