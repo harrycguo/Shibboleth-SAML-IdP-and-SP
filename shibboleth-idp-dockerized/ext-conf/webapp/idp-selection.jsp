@@ -25,8 +25,8 @@
         <br/>
         <br/>
 
-        <input type="submit" name="flowChoice" value="Passwordless Eligible Users"/>
-        <input type="submit" name="flowChoice" value="Alum (non-passwordless-eligible)">
+        <button type="submit" name="flowChoice" value="BeyondIdentity">Students/Staff (passwordless-eligible</button>
+        <button type="submit" name="flowChoice" value="Password">Alum (passwordless-ineligible)</button>
     </form>
 
 </html>
