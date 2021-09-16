@@ -44,7 +44,7 @@ function check(checkbox) {
     }
 }
 
-function helloWorld() {
+function displayPassword() {
   let passwordForm = document.getElementById("passwordForm")
   console.log(passwordForm)
   passwordForm.style.display = 'block';
