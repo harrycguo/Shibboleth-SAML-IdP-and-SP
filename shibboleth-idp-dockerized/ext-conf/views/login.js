@@ -53,8 +53,4 @@ function displayPassword() {
   let passwordButton = document.getElementById("passwordButton")
   console.log(passwordButton)
   passwordButton.style.display = 'none';
-
-
-
-
 }

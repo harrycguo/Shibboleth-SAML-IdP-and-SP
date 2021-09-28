@@ -93,7 +93,7 @@
 
 
     <!-- Example script to see if second factor is required. -->
-    <bean id="checkPasswordlessEligibility" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript">
+    <bean id="checkPasswordlessEligibility" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript" p:customObject-ref="shibboleth.AttributeResolverService">
         <constructor-arg>
             <value>
             <![CDATA[
@@ -166,31 +166,27 @@
                 authCtx.setRequiredName(resCtx.getPrincipalName());
                 logger.info(resCtx.getSubject());
 
-                subject = resCtx.getSubject();
-                principals = subject.getPrincipals();
 
-                principalsItr = principals.iterator();
-                while (principalsItr.hasNext()) {
-                    principal = principalsItr.next()
-                    name = principal.getName()
-                    logger.info(name)
-                    if (name == "useBeyondIdentity") {
-                        logger.info("CHECKING USE BEYOND IDENTITY")
-                        value = principal.getAttribute().getValues().get(0).getValue()
-                        logger.info(value)
-                        if (value.equals("true")) {
-                            logger.info("USE BEYOND IDENTITY")
-                            //nextFlow = "authn/SAML"
-                            
-                            authCtx.setHintedName("passwordless");
-                        } else {
-                            authCtx.setHintedName("password");
-                        }
-                    }
+                // Attribute check is required to decide if first factor alone is enough.
+                attrResCtx = input.getSubcontext("net.shibboleth.idp.attribute.resolver.context.AttributeResolutionContext", true);
+                // Look up the username using a standard function.
+                usernameLookupStrategyClass= Java.type("net.shibboleth.idp.session.context.navigate.CanonicalUsernameLookupStrategy");
+                usernameLookupStrategy = new usernameLookupStrategyClass();
+                attrResCtx.setPrincipal(usernameLookupStrategy.apply(input));
+                attrResCtx.getRequestedIdPAttributeNames().add("affiliation");
+                attrResCtx.resolveAttributes(custom);
+                logger.info("attr res ctx");
+                logger.info(attrResCtx.getResolvedIdPAttributes());
+
+                // Check for an attribute that authorizes use of first factor.
+                attribute = attrResCtx.getResolvedIdPAttributes().get("affiliation");
+                valueType = Java.type("net.shibboleth.idp.attribute.StringAttributeValue");
+
+                authCtx.setHintedName("passwordless");
+                if (attribute != null && attribute.getValues().contains(new valueType("alumni"))) {
+                    authCtx.setHintedName("password");
                 }
 
-                logger.info("NEXT FLOW");
-                logger.info(nextFlow);
               
                 nextFlow;   // pass control to second factor or end with the first
             ]]>

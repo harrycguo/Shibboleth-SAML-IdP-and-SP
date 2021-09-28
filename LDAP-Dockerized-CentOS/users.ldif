@@ -60,3 +60,31 @@ mail: beyondidentity@beyondidentity.com
 userPassword: beyondidentity
 employeeType: arn:aws:iam::my-aws-id:role/shibbolethidp,arn:aws:iam::my-aws-id:saml-provider/Shibboleth-IdP
 employeeNumber: xXXX=BeyondIdentity=XXXx
+
+dn: uid=student@cornell.edu,ou=People,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: inetOrgPerson
+uid: student@cornell.edu
+sn: Student
+givenName: Current
+cn: Current Student
+mail: student@cornell.edu
+userPassword: student
+employeeType: student
+employeeNumber: xXXX=Student=XXXx
+
+dn: uid=alumni@cornell.edu,ou=People,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: inetOrgPerson
+uid: alumni@cornell.edu
+sn: Alumni
+givenName: Graduated
+cn: Graduated Alumni
+mail: alumni@cornell.edu
+userPassword: alumni
+employeeType: alumni
+employeeNumber: xXXX=Alumni=XXXx

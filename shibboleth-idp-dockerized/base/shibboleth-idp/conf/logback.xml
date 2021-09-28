@@ -9,7 +9,7 @@
     <variable name="idp.logfiles" value="${idp.home}/logs" />
     <variable name="idp.loghistory" value="180" />
     
-    <!-- Much higher performance if you operate on DEBUG. -->
+    <!-- Much higher performance if you operate on INFO. -->
     <!-- <variable name="idp.process.appender" value="ASYNC_PROCESS" /> -->
     
     <!-- Logging level shortcuts. -->
@@ -44,13 +44,13 @@
     <!-- Logs LDAP related messages -->
     <logger name="org.ldaptive" level="${idp.loglevel.ldap:-WARN}"/>
     
-    <!-- Logs inbound and outbound protocols messages at DEBUG level -->
+    <!-- Logs inbound and outbound protocols messages at INFO level -->
     <logger name="PROTOCOL_MESSAGE" level="${idp.loglevel.messages:-INFO}" />
 
-    <!-- Logs unencrypted SAML at DEBUG level -->
+    <!-- Logs unencrypted SAML at INFO level -->
     <logger name="org.opensaml.saml.saml2.encryption.Encrypter" level="${idp.loglevel.encryption:-INFO}" />
 
-    <!-- Logs system properties during startup at DEBUG level -->
+    <!-- Logs system properties during startup at INFO level -->
     <logger name="net.shibboleth.idp.log.LogbackLoggingService" level="${idp.loglevel.props:-INFO}" />
 
     <!-- Especially chatty. -->

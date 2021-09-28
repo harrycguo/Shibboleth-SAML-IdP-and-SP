@@ -68,12 +68,14 @@
               </legend>
             #end
 
+            ## HIDDEN PASSWORD FIELD
             <div class="form-element-wrapper">
             ## <label for="username">#springMessageText("idp.login.username", "User")</label>
             <input class="form-element form-field" id="username" name="j_username" type="hidden"
                 value="#if($requiredUsername)$encoder.encodeForHTML($requiredUsername)#end">
             </div>
-                        
+
+            ## PASSWORD ONLY            
             #if ($hintedName == "password")
               <div class="form-element-wrapper">
                 <label for="password">#springMessageText("idp.login.password", "Pass")</label>
@@ -88,8 +90,9 @@
               </div>
             #end
 
+            ## PASSWORDLESS ELIGIBLE: USE PASSWORD
             #if ($hintedName == "passwordless")
-                <button id="passwordButton" type="button" class="form-element form-button" onClick="helloWorld(); return false;">
+                <button id="passwordButton" type="button" class="form-element form-button" onClick="displayPassword(); return false;">
                     #springMessageText("idp.login.login2", "Continue with Password")
                 </button>
 

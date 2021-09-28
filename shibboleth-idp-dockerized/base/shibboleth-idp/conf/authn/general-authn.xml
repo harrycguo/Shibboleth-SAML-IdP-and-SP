@@ -82,7 +82,8 @@
         </bean>
         
         <bean id="authn/External" parent="shibboleth.AuthenticationFlow"
-            p:nonBrowserSupported="false" />
+            p:nonBrowserSupported="false" 
+            />
 
         <bean id="authn/RemoteUser" parent="shibboleth.AuthenticationFlow"
             p:nonBrowserSupported="false" />
@@ -120,7 +121,8 @@
 
         <bean id="authn/Password" parent="shibboleth.AuthenticationFlow"
                 p:passiveAuthenticationSupported="true"
-                p:forcedAuthenticationSupported="true" />
+                p:forcedAuthenticationSupported="true"
+                p:reuseCondition-ref="#{'%{idp.authn.External.reuseCondition:shibboleth.Conditions.FALSE}'.trim()}" />
 
         <bean id="authn/Shibcas" parent="shibboleth.AuthenticationFlow"
                 p:passiveAuthenticationSupported="true"
