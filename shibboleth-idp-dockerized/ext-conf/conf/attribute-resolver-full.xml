@@ -199,12 +199,6 @@
         </Script>
     </AttributeDefinition>
 
-    <AttributeDefinition xsi:type="SubjectDerivedAttribute"
-    forCanonicalization="true"
-    principalAttributeName="zzzemail"
-    id="proxied-uid"
-        />
-
     
     <!-- ========================================== -->
     <!--      Data Connectors                       -->
