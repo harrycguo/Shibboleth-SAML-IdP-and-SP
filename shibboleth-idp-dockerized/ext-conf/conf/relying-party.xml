@@ -34,10 +34,10 @@
     <bean id="shibboleth.DefaultRelyingParty" parent="RelyingParty">
         <property name="profileConfigurations">
             <list>
-                <bean parent="Shibboleth.SSO" p:postAuthenticationFlows="attribute-release" />
+                <bean parent="Shibboleth.SSO" p:postAuthenticationFlows="#{{'attribute-release', 'terms-of-use', 'context-check'}}" />
                 <ref bean="SAML1.AttributeQuery" />
                 <ref bean="SAML1.ArtifactResolution" />
-                <bean parent="SAML2.SSO" p:postAuthenticationFlows="attribute-release" />
+                <bean parent="SAML2.SSO" p:postAuthenticationFlows="#{{'attribute-release', 'terms-of-use', 'context-check'}}" />
                 <ref bean="SAML2.ECP" />
                 <ref bean="SAML2.Logout" />
                 <ref bean="SAML2.AttributeQuery" />
@@ -134,8 +134,8 @@
       <property name="profileConfigurations">
           <list>
               <bean 
+              p:postAuthenticationFlows="context-check"
               parent="SAML2.SSO" 
-
               p:encryptAssertions="false" 
               p:encryptNameIDs="false" />
           </list>
@@ -147,8 +147,8 @@
       <property name="profileConfigurations">
           <list>
               <bean 
+              p:postAuthenticationFlows="context-check"
               parent="SAML2.SSO" 
-			p:authenticationFlows="#{{'Password'}}"
               p:encryptAssertions="false" 
               p:encryptNameIDs="false" />
           </list>
@@ -160,8 +160,8 @@
       <property name="profileConfigurations">
           <list>
               <bean 
+              p:postAuthenticationFlows="context-check"
               parent="SAML2.SSO" 
-			p:authenticationFlows="#{{'Password'}}"
               p:encryptAssertions="false" 
               p:encryptNameIDs="false" />
           </list>

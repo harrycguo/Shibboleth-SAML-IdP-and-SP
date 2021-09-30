@@ -28,12 +28,7 @@
 
 <util:list id="shibboleth.AvailableAuthenticationFlows">
 
-    <bean id="authn/SAML" parent="shibboleth.AuthenticationFlow"
-        p:nonBrowserSupported="false"
-        p:passiveAuthenticationSupported="true"
-        p:forcedAuthenticationSupported="true"
-        p:proxyScopingEnforced="true"
-        p:discoveryRequired="true" />
+
 
     <bean id="authn/MFA" parent="shibboleth.AuthenticationFlow"
         p:passiveAuthenticationSupported="true"
@@ -44,19 +39,26 @@
             rules. The example corresponds to the example in mfa-authn-config.xml that
             combines IPAddress with Password.
             -->
-<property name="supportedPrincipals">
-    <list>
-        <bean parent="shibboleth.SAML2AuthnContextClassRef"
-            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol" />
-        <bean parent="shibboleth.SAML2AuthnContextClassRef"
-            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport" />
-        <bean parent="shibboleth.SAML2AuthnContextClassRef"
-            c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:Password" />
-        <bean parent="shibboleth.SAML1AuthenticationMethod"
-            c:method="urn:oasis:names:tc:SAML:1.0:am:password" />
-    </list>
-</property>
+            <property name="supportedPrincipals">
+                <list>
+                    <bean parent="shibboleth.SAML2AuthnContextClassRef"
+                        c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol" />
+                    <bean parent="shibboleth.SAML2AuthnContextClassRef"
+                        c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport" />
+                    <bean parent="shibboleth.SAML2AuthnContextClassRef"
+                        c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:Password" />
+                    <bean parent="shibboleth.SAML1AuthenticationMethod"
+                        c:method="urn:oasis:names:tc:SAML:1.0:am:password" />
+                </list>
+            </property>
         </bean>
+
+    <bean id="authn/SAML" parent="shibboleth.AuthenticationFlow"
+        p:nonBrowserSupported="false"
+        p:passiveAuthenticationSupported="true"
+        p:forcedAuthenticationSupported="true"
+        p:proxyScopingEnforced="true"
+        p:discoveryRequired="true" />
 
         <bean id="authn/IPAddress" parent="shibboleth.AuthenticationFlow"
                 p:passiveAuthenticationSupported="true"

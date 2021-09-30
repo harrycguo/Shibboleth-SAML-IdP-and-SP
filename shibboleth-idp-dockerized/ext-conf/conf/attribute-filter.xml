@@ -24,6 +24,8 @@
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
 
+        <AttributeRule attributeID="AAL" permitAny="true" />
+
 	<AttributeRule attributeID="awsRoles">
 	    <PermitValueRule xsi:type="ANY"/>
 	</AttributeRule>

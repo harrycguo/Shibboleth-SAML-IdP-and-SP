@@ -19,22 +19,15 @@
     whether to proceed if the flow is activated. The most common use for this flow is to check the set of
     resolved/filtered attributes and values to see if the user is authorized or provisioned into a service.
     -->
-    <bean id="shibboleth.context-check.Condition" parent="shibboleth.Conditions.AND">
+    <bean id="shibboleth.context-check.Condition" parent="shibboleth.Conditions.OR">
         <constructor-arg>
             <list>
-                <bean parent="shibboleth.Conditions.RelyingPartyId" c:candidates="#{{ '{{' }}'https://sp.example.org'{{ '}}' }}" />
-                <bean class="net.shibboleth.idp.profile.logic.SimpleAttributePredicate"
-                        p:useUnfilteredAttributes="true">
-                    <property name="attributeValueMap">
-                        <map>
-                            <entry key="eppn">
-                                <list>
-                                    <value>*</value>
-                                </list>
-                            </entry>
-                        </map>
-                    </property>
-                </bean>
+                <bean id="MyCondition" parent="shibboleth.Conditions.RelyingPartyId">
+                    <constructor-arg>
+                        <bean class="com.google.common.base.Predicates" factory-method="containsPattern"
+                        c:pattern="^.*$" />
+                    </constructor-arg>
+                    </bean>
             </list>
         </constructor-arg>
     </bean>
@@ -43,21 +36,33 @@
     More general purpose approach using a Function that returns either "proceed" or a custom error Event.
     This is a cleaner way of applying multiple conditions in different cases or triggering different events.
     -->
-    <!--
-    <bean id="shibboleth.context-check.Function" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript"
-	        p:customObject-ref="shibboleth.context-check.Condition">
+    
+    <bean id="shibboleth.context-check.Function" parent="shibboleth.ContextFunctions.Scripted" factory-method="inlineScript">
         <constructor-arg>
             <value>
             <![CDATA[
-            var event = "proceed";
-            if (!custom.apply(input)) {
-                event = "ContextCheckDenied";
-            }
-            event;
+                var event = "proceed";
+                logger = Java.type("org.slf4j.LoggerFactory").getLogger("net.shibboleth.idp.authn");
+                logger.info("CONTEXT CHECKING");
+
+                itr = input.iterator();
+                logger.info(input);
+
+                while(itr.hasNext()) {
+                    element = itr.next();
+                    logger.info(element);
+                }
+
+                subjCtx = input.getSubcontext("net.shibboleth.idp.authn.context.SubjectContext");
+                logger.info("subject ctx");
+                logger.info(subjCtx.getSubjects());
+
+
+                event;
             ]]>
             </value>
         </constructor-arg>
     </bean>
-    -->
+   
     
 </beans>

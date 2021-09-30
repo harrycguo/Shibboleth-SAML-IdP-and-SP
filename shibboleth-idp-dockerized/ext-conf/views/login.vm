@@ -96,7 +96,7 @@
                                 </div>
                                 #end
 
-                                ## PASSWORDLESS ELIGIBLE: USE PASSWORD
+                                ## PASSWORDLESS ELIGIBLE: SELECT METHOD
                                 #if ($hintedName == "passwordless")
                                 <button class="page-button" style="margin-top: 10px;" id="passwordButton" type="button" onClick="displayPassword(); return false;">
                                     #springMessageText("idp.login.login2", "Continue with Password")
@@ -115,7 +115,7 @@
                                   </div>
                                 </div>
 
-                                  <p style="font-size: 15px; color: #666; margin-top: 10px; margin-top: 10px;"> &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; OR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; </p>
+                                  <p style="font-size: 15px; color: #666; margin-top: 10px; margin-bottom: 10px;"> &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; OR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; </p>
                                   
                                   <div class="form-element-wrapper">
                                     <button class="page-button" style="margin-bottom: 10px;" type="submit" name="_eventId" value="MyCustomEvent" 
