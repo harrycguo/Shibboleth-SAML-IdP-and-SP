@@ -1,0 +1,30 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+*.rpm
+*.deb
+*.log
+.vagrant
+.history/
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+.idea
+.vs
+.vscode
+.kube
+/temp-*
+/clients/objc/frameworks/bin
+/bin
+/obj
+/cmd/tinyidp/tinyidp
+/services/regd/build
+/.envrc
+/nix
+/*.nix
+pyrightconfig.json

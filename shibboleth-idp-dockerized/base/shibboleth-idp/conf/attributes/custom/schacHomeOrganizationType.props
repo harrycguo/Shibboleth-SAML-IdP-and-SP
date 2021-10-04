@@ -1,7 +1,0 @@
-id=AAL
-transcoder=SAML2StringTranscoder SAML1StringTranscoder
-saml1.name=AAL
-saml2.name=AAL
-displayName.en=Home Orgainisation type
-description.en=Type of Organisation the user belongs too
-

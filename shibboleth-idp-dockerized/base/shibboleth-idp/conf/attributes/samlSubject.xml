@@ -59,28 +59,7 @@
                 </props>
             </property>
         </bean>
-
-        <bean parent="shibboleth.TranscodingProperties">
-            <property name="properties">
-                <props merge="true">
-                    <prop key="id">AAL</prop>
-                    <prop key="transcoder">SAML2ScopedStringTranscoder</prop>
-                    <prop key="saml2.name">AAL</prop>
-                    <prop key="saml2.nameFormat">urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified</prop>
-                    <prop key="displayName.en">Pairwise ID</prop>
-                    <prop key="displayName.de">Pairwise ID</prop>
-                    <prop key="displayName.fr">Pairwise ID</prop>
-                    <prop key="displayName.it">Pairwise ID</prop>
-                    <prop key="displayName.ja">ペアワイズID</prop>
-                    <prop key="description.en">Pairwise ID: A unique identifier for a person, different for each service provider.</prop>
-                    <prop key="description.de">Pairwise ID: Eindeutige Benutzeridentifikation, unterschiedlich pro Service Provider.</prop>
-                    <prop key="description.de-ch">Pairwise ID: Eindeutige Benützeridentifikation, unterschiedlich pro Service Provider.</prop>
-                    <prop key="description.fr">Pairwise ID: Un identifiant unique de l'utilisateur, différent pour chaque fournisseur de service.</prop>
-                    <prop key="description.it">Pairwise ID: identificativo unico della persona, differente per ogni fornitore di servizio.</prop>
-                    <prop key="description.ja">フェデレーション内で一意かつSP毎に送出される値が異なる利用者識別子(eduPersonTargetedIDの後継)</prop>
-                </props>
-            </property>
-        </bean>
+        
 
     </list>
     </constructor-arg>

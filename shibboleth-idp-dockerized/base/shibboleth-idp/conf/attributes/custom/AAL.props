@@ -1,0 +1,7 @@
+id=AAL
+transcoder=SAML2StringTranscoder SAML1StringTranscoder
+saml1.name=AAL
+saml2.name=AAL
+displayName.en=Authentication assurance level
+description.en=The AAL level of the user
+
