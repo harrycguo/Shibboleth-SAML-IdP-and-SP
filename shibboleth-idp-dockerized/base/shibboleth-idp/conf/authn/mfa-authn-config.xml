@@ -163,7 +163,12 @@
                 resCtx = input.getSubcontext("net.shibboleth.idp.authn.context.SubjectCanonicalizationContext");
                 logger.info("subject c14n");
                 logger.info(resCtx.getPrincipalName());
-                authCtx.setRequiredName(resCtx.getPrincipalName());
+                //not available in 4.0
+                //authCtx.setRequiredName(resCtx.getPrincipalName());
+
+                authStateMap = authCtx.getAuthenticationStateMap();
+
+                authStateMap.put("username", resCtx.getPrincipalName());
                 logger.info(resCtx.getSubject());
 
 
@@ -182,10 +187,12 @@
                 attribute = attrResCtx.getResolvedIdPAttributes().get("affiliation");
                 valueType = Java.type("net.shibboleth.idp.attribute.StringAttributeValue");
 
-                authCtx.setHintedName("passwordless");
+                authStateMap.put("passwordlessEligibility", "true");
                 if (attribute != null && attribute.getValues().contains(new valueType("alumni"))) {
-                    authCtx.setHintedName("password");
+                    authStateMap.put("passwordlessEligibility", "false");
                 }
+
+                logger.info(authStateMap);
 
               
                 nextFlow;   // pass control to second factor or end with the first

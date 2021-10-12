@@ -29,8 +29,8 @@
   #set ($passwordEnabled = true)
 #end
 
-#set ($requiredUsername = $authenticationContext.getRequiredName()) 
-#set ($hintedName = $authenticationContext.getHintedName()) 
+#set ($requiredUsername = $authenticationContext.getAuthenticationStateMap().get("username")) 
+#set ($passwordlessEligibility = $authenticationContext.getAuthenticationStateMap().get("passwordlessEligibility")) 
 
 ##
 <!DOCTYPE html>
@@ -86,7 +86,7 @@
                                   value="#if($requiredUsername)$encoder.encodeForHTML($requiredUsername)#end">
 
                                 ## PASSWORD ONLY
-                                #if ($hintedName == "password")
+                                #if ($passwordlessEligibility == "false")
                                 <input id="password" name="j_password" type="password" required=""
                                     autocomplete="current-password" aria-required="true" placeholder="Password">
                                 <div class="form-footer">
@@ -97,7 +97,7 @@
                                 #end
 
                                 ## PASSWORDLESS ELIGIBLE: SELECT METHOD
-                                #if ($hintedName == "passwordless")
+                                #if ($passwordlessEligibility == "true")
                                 <button class="page-button" style="margin-top: 10px;" id="passwordButton" type="button" onClick="displayPassword(); return false;">
                                     #springMessageText("idp.login.login2", "Continue with Password")
                                 </button>
