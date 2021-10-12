@@ -13,11 +13,9 @@
     <!-- Custom error events to reflect back from user-supplied login subflows. -->
 
     <end-state id="MyCustomEvent" />
-    <end-state id="SAML" />
 
     <global-transitions>
         <transition on="MyCustomEvent" to="MyCustomEvent" />
-        <transition on="SAML" to="SAML" />
         <transition on="#{!'proceed'.equals(currentEvent.id)}" to="InvalidEvent" />
     </global-transitions>
 
