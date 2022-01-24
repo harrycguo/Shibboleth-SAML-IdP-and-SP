@@ -109,7 +109,7 @@
                     logger.info(element);
                 }
 
-                //profileRequestContext = input.getSubcontext("net.shibboleth.idp.profile.context.RelyingPartyContext");
+                //profileRequestContext = input.getSubcontext("org.opensaml.profile.context.ProfileRequestContext");
                 //logger.info(profileRequestContext);
                 //auditContext = input.getSubcontext("net.shibboleth.idp.profile.context.AuditContext");
                 //logger.info(auditContext);
@@ -166,7 +166,7 @@
                 logger.info(resCtx.getPrincipalName());
 
                 //only available in >4.1
-                //authCtx.setRequiredName(resCtx.getPrincipalName());
+                authCtx.setRequiredName(resCtx.getPrincipalName());
 
                 //available in 4.0
                 principals = externalCtx.getSubject()
@@ -177,6 +177,8 @@
                 logger.info(usernamePrincipal);
                 //blahh = authCtx.addRequestedPrincipalContext​("=", usernamePrincipal, false);
 
+                reqpCtx = authCtx.getSubcontext("net.shibboleth.idp.authn.context.RequestedPrincipalContext");
+                logger.info(reqpCtx);
 
                 authStateMap = authCtx.getAuthenticationStateMap();
                 authStateMap.put("username", resCtx.getPrincipalName());
