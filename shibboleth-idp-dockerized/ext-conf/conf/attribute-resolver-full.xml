@@ -203,6 +203,18 @@
     <!-- ========================================== -->
     <!--      Data Connectors                       -->
     <!-- ========================================== -->
+    <DataConnector id="passthroughAttributes" xsi:type="Subject" exportAttributes="AAL eduPersonPrincipalName" />
+
+    <AttributeDefinition xsi:type="SubjectDerivedAttribute"
+        forCanonicalization="false"
+        id="eduPersonPrincipalNameAttribute"
+        principalAttributeName="eduPersonPrincipalName" />
+ 
+    <AttributeDefinition xsi:type="SubjectDerivedAttribute"
+        forCanonicalization="false"
+        id="AALAttribute"
+        principalAttributeName="AAL" />
+
 
     <DataConnector id="staticAttributes" xsi:type="Static">
         <Attribute id="schacHomeOrganization">

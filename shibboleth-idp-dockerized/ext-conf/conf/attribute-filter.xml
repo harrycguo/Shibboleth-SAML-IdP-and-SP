@@ -24,6 +24,14 @@
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
 
+        <AttributeRule attributeID="AAL">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+
 
 	<AttributeRule attributeID="awsRoles">
 	    <PermitValueRule xsi:type="ANY"/>
@@ -47,6 +55,7 @@
 
     </AttributeFilterPolicy>
 
+<!-- NOTE: ATTRIBUTE FILTER POLICY -->
 <AttributeFilterPolicy id="saml-proxy-pass-through">
     <PolicyRequirementRule xsi:type="Issuer" value="https://auth.staging.byndid.net/saml/v0/03917e78-4914-4819-8d4f-b1b7501e8166/sso/metadata.xml" />
     <AttributeRule attributeID="AAL" permitAny="true" />

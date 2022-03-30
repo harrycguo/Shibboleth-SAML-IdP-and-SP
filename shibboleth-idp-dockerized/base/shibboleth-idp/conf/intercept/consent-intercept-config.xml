@@ -48,9 +48,9 @@
     -->
     
     <util:list id="shibboleth.consent.attribute-release.WhitelistedAttributeIDs">
-        <!--
-        <value>mail</value>
-        -->
+        
+        <!-- <value>mail</value> -->
+       
     </util:list>
 
     <util:list id="shibboleth.consent.attribute-release.BlacklistedAttributeIDs">
